@@ -33,15 +33,24 @@ Message _$MessageFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MessageToJson(Message instance) => <String, dynamic>{
-      'name': instance.name,
-      'data': instance.data,
-      'notification': instance.notification,
-      'android': instance.android,
-      'webpush': instance.webpush,
-      'apns': instance.apns,
-      'fcm_options': instance.fcm_options,
-      'token': instance.token,
-      'topic': instance.topic,
-      'condition': instance.condition,
-    };
+Map<String, dynamic> _$MessageToJson(Message instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  writeNotNull('data', instance.data);
+  writeNotNull('notification', instance.notification);
+  writeNotNull('android', instance.android);
+  writeNotNull('webpush', instance.webpush);
+  writeNotNull('apns', instance.apns);
+  writeNotNull('fcm_options', instance.fcm_options);
+  writeNotNull('token', instance.token);
+  writeNotNull('topic', instance.topic);
+  writeNotNull('condition', instance.condition);
+  return val;
+}

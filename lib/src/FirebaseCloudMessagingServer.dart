@@ -1,9 +1,11 @@
 import 'dart:convert';
+
+import "package:googleapis_auth/auth_io.dart";
+import 'package:http/http.dart' as http;
+
 import 'logic/JWTClaim.dart';
 import 'logic/Message.dart';
 import 'logic/Send.dart';
-import 'package:http/http.dart' as http;
-import "package:googleapis_auth/auth_io.dart";
 
 class FirebaseCloudMessagingServer {
   ///Firebase console:
@@ -54,6 +56,9 @@ class FirebaseCloudMessagingServer {
         !cacheAuth) {
       await performAuth();
     }
+
+    print(json.encode(sendObject.toJson()));
+
     var url = 'https://fcm.googleapis.com/v1/projects/$projectId/messages:send';
     var response = await http.post(url,
         headers: {

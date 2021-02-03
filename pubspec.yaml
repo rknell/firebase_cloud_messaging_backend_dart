@@ -14,6 +14,7 @@ dependencies:
   json_serializable: ^3.2.2
   json_annotation: ^3.0.0
   googleapis_auth: ^0.2.10
+  meta: ^1.2.4
 
 dev_dependencies:
   pedantic: ^1.7.0

@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'AndroidNotification.g.dart';
 
-@JsonSerializable(nullable: true)
+@JsonSerializable(nullable: true, includeIfNull: false)
 class AndroidNotification {
   String title;
   String body;

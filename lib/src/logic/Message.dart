@@ -8,7 +8,7 @@ import 'WebpushConfig.dart';
 
 part 'Message.g.dart';
 
-@JsonSerializable(nullable: true)
+@JsonSerializable(nullable: true, includeIfNull: false)
 class Message {
   ///Output Only. The identifier of the message sent, in the format of projects/*/messages/{message_id}.
   String name;

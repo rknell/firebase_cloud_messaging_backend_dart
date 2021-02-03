@@ -23,15 +23,23 @@ AndroidConfig _$AndroidConfigFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$AndroidConfigToJson(AndroidConfig instance) =>
-    <String, dynamic>{
-      'collapse_key': instance.collapse_key,
-      'priority': _$AndroidMessagePriorityEnumMap[instance.priority],
-      'ttl': instance.ttl,
-      'restricted_package_name': instance.restricted_package_name,
-      'data': instance.data,
-      'notification': instance.notification,
-    };
+Map<String, dynamic> _$AndroidConfigToJson(AndroidConfig instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('collapse_key', instance.collapse_key);
+  writeNotNull('priority', _$AndroidMessagePriorityEnumMap[instance.priority]);
+  writeNotNull('ttl', instance.ttl);
+  writeNotNull('restricted_package_name', instance.restricted_package_name);
+  writeNotNull('data', instance.data);
+  writeNotNull('notification', instance.notification);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

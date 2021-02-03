@@ -43,36 +43,43 @@ AndroidNotification _$AndroidNotificationFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$AndroidNotificationToJson(
-        AndroidNotification instance) =>
-    <String, dynamic>{
-      'title': instance.title,
-      'body': instance.body,
-      'icon': instance.icon,
-      'color': instance.color,
-      'sound': instance.sound,
-      'tag': instance.tag,
-      'click_action': instance.click_action,
-      'body_loc_key': instance.body_loc_key,
-      'body_loc_args': instance.body_loc_args,
-      'title_loc_key': instance.title_loc_key,
-      'title_loc_args': instance.title_loc_args,
-      'channel_id': instance.channel_id,
-      'ticker': instance.ticker,
-      'sticky': instance.sticky,
-      'event_time': instance.event_time,
-      'local_only': instance.local_only,
-      'notification_priority':
-          _$NotificationPriorityEnumMap[instance.notification_priority],
-      'default_sound': instance.default_sound,
-      'default_vibrate_timings': instance.default_vibrate_timings,
-      'default_light_settings': instance.default_light_settings,
-      'vibrate_timings': instance.vibrate_timings,
-      'visibility': _$VisibilityEnumMap[instance.visibility],
-      'notification_count': instance.notification_count,
-      'light_settings': instance.light_settings,
-      'image': instance.image,
-    };
+Map<String, dynamic> _$AndroidNotificationToJson(AndroidNotification instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('title', instance.title);
+  writeNotNull('body', instance.body);
+  writeNotNull('icon', instance.icon);
+  writeNotNull('color', instance.color);
+  writeNotNull('sound', instance.sound);
+  writeNotNull('tag', instance.tag);
+  writeNotNull('click_action', instance.click_action);
+  writeNotNull('body_loc_key', instance.body_loc_key);
+  writeNotNull('body_loc_args', instance.body_loc_args);
+  writeNotNull('title_loc_key', instance.title_loc_key);
+  writeNotNull('title_loc_args', instance.title_loc_args);
+  writeNotNull('channel_id', instance.channel_id);
+  writeNotNull('ticker', instance.ticker);
+  writeNotNull('sticky', instance.sticky);
+  writeNotNull('event_time', instance.event_time);
+  writeNotNull('local_only', instance.local_only);
+  writeNotNull('notification_priority',
+      _$NotificationPriorityEnumMap[instance.notification_priority]);
+  writeNotNull('default_sound', instance.default_sound);
+  writeNotNull('default_vibrate_timings', instance.default_vibrate_timings);
+  writeNotNull('default_light_settings', instance.default_light_settings);
+  writeNotNull('vibrate_timings', instance.vibrate_timings);
+  writeNotNull('visibility', _$VisibilityEnumMap[instance.visibility]);
+  writeNotNull('notification_count', instance.notification_count);
+  writeNotNull('light_settings', instance.light_settings);
+  writeNotNull('image', instance.image);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,
